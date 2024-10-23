@@ -21,6 +21,20 @@ ath fep <<command>> --only-that
 The `-` is used as a separator for folders that are passed as a flag. Since the search is fuzzy, consider how can you actually filter the folders if You have kebab-cased folder names
 :::
 
+## Sustain flag
+
+The --sustain flag is used to prevent a command from timing out. By default, commands that take longer than 5 minutes will time out, but using this flag allows long-running processes to continue without interruption.
+
+```sh
+ath fep <<command>> --sustain
+```
+
+This is especially useful for tasks like server startups or extensive build processes that are expected to take longer than usual.
+
+::: important Upcoming Changes:
+A future refactor will change how timeouts are handled. Timeout behavior will become opt-in, allowing you to set custom timeout lengths via configuration.
+:::
+
 ## Examples
 
 ::: tabs
