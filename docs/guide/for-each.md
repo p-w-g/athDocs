@@ -71,6 +71,22 @@ Installs node modules in all folders beside app 1,2 or 3.
 ath fep npm i --skip-app1-app2-app3
 ```
 
+@tab --sustain
+
+Runs a long-running build process without timing out, keeping the process active beyond the 5-minute limit.
+
+```sh
+ath fep npm run build --sustain
+```
+
+@tab --local
+
+Runs git pull in the current directory instead of the default configured working directory.
+
+```sh
+ath fep git pull --local
+```
+
 @tab chaining
 
 Will fetch and pull all changes in all folders and once all tasks either are done or failed will echo 'done'.
