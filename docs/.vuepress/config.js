@@ -6,7 +6,7 @@ export default defineUserConfig({
   lang: "en-US",
 
   title: "Async Task Helper",
-  description: "Task runner that executes commands in parallel",
+  description: "Execute commands in multiple directories at once.",
   theme: defaultTheme({
     navbar: ["/", "/get-started", { text: "Guide", link: "/guide/" }],
     sidebar: {

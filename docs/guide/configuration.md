@@ -40,7 +40,3 @@ Example: ath unignore .git .idea .vscode
 ## Future improvements
 
 The command notation will be updated in the future to something more harmonized, like ath config --set-folder, for consistency with other commands, such as for-each. This will make the syntax more intuitive and uniform across the tool.
-
-::: info
-In the future, a sustain flag will be introduced, which will prevent processes from timing out during long-running tasks. This could be coupled with a permanent sustain config feature, giving users even more flexibility to keep processes alive when necessary.
-:::
