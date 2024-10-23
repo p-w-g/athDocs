@@ -35,6 +35,16 @@ This is especially useful for tasks like server startups or extensive build proc
 A future refactor will change how timeouts are handled. Timeout behavior will become opt-in, allowing you to set custom timeout lengths via configuration.
 :::
 
+## Local flag
+
+The --local flag allows you to bypass the configured default working directory for a one-off execution. This is useful when you typically work in a set folder but need to quickly run a command in a different location without altering your configuration.
+
+```sh
+ath fep <<command>> --local
+```
+
+This flag ensures that your command will run in the current working directory (or wherever you specify) without impacting your default settings.
+
 ## Examples
 
 ::: tabs
