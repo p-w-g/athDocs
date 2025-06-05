@@ -25,27 +25,10 @@ ath fep rm -rf node_modules --only-hello_world-calculatorApp-todo
 This runs the command only in the specified folders.
 :::
 
-## Configuration
-
-You can configure ath to set a default working directory or permanently ignore specific folders. This lets you streamline your workflow by excluding unnecessary directories from command execution.
-
-To find the location of your configuration file, simply run:
-
-```sh
-ath pcp
-```
-
-::: note
-The configuration command syntax is likely to change in the future to improve consistency. For example, it may evolve into something like:
-
-```sh 
-ath config <<--setting>>
-```
-:::
-
 ## Help
 
 Need a quick guide? The ath CLI comes with built-in help. Just run:
+
 ```sh
 ath help
 ```

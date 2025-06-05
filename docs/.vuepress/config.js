@@ -16,10 +16,27 @@ export default defineUserConfig({
         {
           text: "Guide",
           collapsible: true,
-          expanded: true,
-          path: "/guide/",
-          prefix: "/guide/",
-          children: ["README.md", "for-each", "configuration"],
+          link: "/guide/", // Makes Guide clickable
+          children: [
+            {
+              text: "v1",
+              collapsible: true,
+              prefix: "/guide/v1/",
+              children: [
+                "for-each", // points to /guide/v1/for-each.md
+                "configuration", // points to /guide/v1/configuration.md
+              ],
+            },
+            {
+              text: "v2",
+              collapsible: true,
+              prefix: "/guide/v2/",
+              children: [
+                "for-each", // points to /guide/v2/for-each.md
+                "configuration", // points to /guide/v2/configuration.md
+              ],
+            },
+          ],
         },
       ],
     },
