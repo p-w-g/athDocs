@@ -15,26 +15,32 @@ This configuration file lets you:
 ### 🛤️ `cfg path`
 
 Prints the path to the current configuration file.
+Replaces `ath pcp`
 
 ### 📄 `cfg file`
 
 Prints the contents of the current configuration file.
+Replaces `ath pcf`
 
 ### 📍 `cfg here`
 
 Sets the **current working directory** as the default working directory for future `fep` commands, until it is changed or unset.
+Replaces `ath swd`
 
 ### 🛸 `cfg away`
 
 Unsets the default working directory, allowing `fep` commands to run from the current working directory.
+Replaces `ath uwd`
 
 ### 🚫 `cfg ignore [folders...]`
 
 Adds specified folders to the permanently ignored list. These folders will be excluded from future `fep` operations.
+Replaces `ath ignore`
 
 ### ✅ `cfg heed [folders...] | --all`
 
 Removes specified folders from the permanently ignored list, or use `--all` to clear all ignored folders.
+Replaces `ath unignore`
 
 ### ⏰ `cfg to [seconds]`
 
