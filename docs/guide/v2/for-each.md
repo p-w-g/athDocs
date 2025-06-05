@@ -1,11 +1,6 @@
 # For Each
 
-This function is a task runner that filters folders based on user-provided arguments and executes commands in parallel across the filtered folders. The flexibility is provided via --skip and --only flags to exclude or target specific folders
-
-## Folder crawling
-
-Retrieves a list of directories from either a configured default folder or the current directory.
-If folders are specified in the configuration to be ignored, it excludes them from the directory list.
+This command starts the task runner in the current working directory (or a preconfigured directory) and executes the specified command across all subfolders. You can select target or excluded folders through command-line flags (--only, --skip) or via a configuration file (ignore).
 
 ## Skip and Only flags
 
@@ -17,18 +12,8 @@ ath fep <<command>> --skip-this
 ath fep <<command>> --only-that
 ```
 
-## Sustain flag
-
-The --sustain flag is used to prevent a command from timing out. By default, commands that take longer than 5 minutes will time out, but using this flag allows long-running processes to continue without interruption.
-
-```sh
-ath fep <<command>> --sustain
-```
-
-This is especially useful for tasks like server startups or extensive build processes that are expected to take longer than usual.
-
-::: important Upcoming Changes:
-A future refactor will change how timeouts are handled. Timeout behavior will become opt-in, allowing you to set custom timeout lengths via configuration.
+::: important
+The `-` is used as a separator for folders that are passed as a flag. Since the search is fuzzy, consider how can you actually filter the folders if You have kebab-cased folder names
 :::
 
 ## Local flag
@@ -40,6 +25,30 @@ ath fep <<command>> --local
 ```
 
 This flag ensures that your command will run in the current working directory (or wherever you specify) without impacting your default settings.
+
+## Timeouts
+
+By default, there is no command timeout configured. To specify a timeout duration (in seconds) for a single command execution, use the --timeout-<seconds> flag. The command will fail if the timeout duration is not provided.
+
+```sh
+ath fep <<command>> --timeout-60
+```
+
+To set a permanent timeout configuration that applies to all future commands, refer to ath conf to.
+
+::: important
+If a process times out, it may become orphaned, meaning it will continue running in the background without being tracked, which can lead to resource leakage or other unintended side effects.
+:::
+
+## Sustain flag
+
+The --sustain flag is used to prevent a command from timing out. This flag is relevant only if a permanent timeout has been set; otherwise, it has no effect.
+
+```sh
+ath fep <<command>> --sustain
+```
+
+This is especially useful for tasks like server startups or extensive build processes that are expected to take longer than usual.
 
 ## Examples
 
@@ -65,6 +74,14 @@ Installs node modules in all folders beside app 1,2 or 3.
 
 ```sh
 ath fep npm i --skip-app1-app2-app3
+```
+
+@tab --timeout
+
+Runs a long-running build process without timing out, keeping the process active beyond the 5-minute limit.
+
+```sh
+ath fep npm run build --sustain
 ```
 
 @tab --sustain
@@ -104,14 +121,6 @@ ath fep "npm run test:jest || npm run test"
 ## Caveats
 
 Be aware of some limitations of current implementation of the CLI.
-
-### Timeouts
-
-Currently, any process that runs longer than 5 minutes will time out and fail. This is intended to prevent indefinite hangs but can cause issues for long-running processes, such as server startups or large operations that take more time by design.
-
-::: important
-If a process times out, it may become orphaned, meaning it will continue running in the background without being tracked, which can lead to resource leakage or other unintended side effects.
-:::
 
 ### Graceful fail
 
