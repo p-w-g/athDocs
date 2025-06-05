@@ -28,7 +28,7 @@ This flag ensures that your command will run in the current working directory (o
 
 ## Timeouts
 
-By default, there is no command timeout configured. To specify a timeout duration (in seconds) for a single command execution, use the --timeout-<seconds> flag. The command will fail if the timeout duration is not provided.
+By default, there is no command timeout configured. To specify a timeout duration (in seconds) for a single command execution, use the `--timeout-<seconds>` flag. The command will fail if the timeout duration is not provided.
 
 ```sh
 ath fep <<command>> --timeout-60
