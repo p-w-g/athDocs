@@ -7,6 +7,16 @@ export default defineUserConfig({
 
   title: "Async Task Helper",
   description: "Execute commands in multiple directories at once.",
+  head: [
+    [
+      "script",
+      {
+        defer: true,
+        src: "https://cloud.umami.is/script.js",
+        "data-website-id": "e5b1887a-7d49-4ad8-aced-d42e6fdc2153",
+      },
+    ],
+  ],
   theme: defaultTheme({
     navbar: ["/", "/get-started", { text: "Guide", link: "/guide/" }],
     sidebar: {
